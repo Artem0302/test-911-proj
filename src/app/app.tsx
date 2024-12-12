@@ -1,8 +1,8 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {RootProvider} from './root-provider';
 
 function App(): React.JSX.Element {
-  return <SafeAreaView></SafeAreaView>;
+  return <RootProvider />;
 }
 
 export default App;

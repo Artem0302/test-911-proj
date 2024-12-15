@@ -4,6 +4,9 @@ import {COLORS} from '@shared/constants';
 export default StyleSheet.create({
   wrapper: {
     flex: 1,
+  },
+  container: {
+    flex: 1,
     justifyContent: 'center',
     backgroundColor: COLORS.light_bg,
   },
@@ -24,5 +27,18 @@ export default StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 4,
+  },
+  input_wrapper: {
+    marginTop: 16,
+  },
+  input: {
+    borderRadius: 16,
+  },
+  button: {
+    borderRadius: 16,
+    width: '100%',
+    alignItems: 'center',
+    padding: 8,
+    marginTop: 32,
   },
 });

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {View, FlatList, ListRenderItem, RefreshControl} from 'react-native';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -9,14 +9,10 @@ import {SearchAlbumInput, AlbumItem} from './components';
 import styles from './home-screen.styles.ts';
 
 export function HomeScreen() {
-  const {getTopAlbums} = useGetTopAlbums();
   const [loading, setLoading] = useState(false);
   const [searchText, setSearchText] = useState('');
   const [data, setData] = useState<TAlbum[] | undefined>([]);
-
-  useEffect(() => {
-    getTopAlbums({setData, setLoading});
-  }, []);
+  const {getTopAlbums, fetchNewData} = useGetTopAlbums({setData, setLoading});
 
   const renderItem: ListRenderItem<TAlbum> = useCallback(({item}) => {
     return <AlbumItem item={item} />;
@@ -51,11 +47,10 @@ export function HomeScreen() {
         numColumns={2}
         columnWrapperStyle={styles.column_wrapper}
         refreshControl={
-          <RefreshControl
-            refreshing={loading}
-            onRefresh={() => getTopAlbums({setData, setLoading})}
-          />
+          <RefreshControl refreshing={loading} onRefresh={getTopAlbums} />
         }
+        onEndReachedThreshold={0.2}
+        onEndReached={fetchNewData}
       />
     </SafeAreaView>
   );

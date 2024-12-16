@@ -1,9 +1,10 @@
 import React from 'react';
 
-import {Image, TouchableOpacity} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import {COLORS} from '@shared/constants';
 import {Typography} from '@shared/ui';
 import {TAlbum} from '../../../types';
+import AlbumCoverPlaceholder from '../../assets/album-cover-placeholder.png';
 import styles from './album-item.styles.ts';
 
 interface IAlbumItem {
@@ -13,12 +14,23 @@ interface IAlbumItem {
 export function AlbumItem({item}: IAlbumItem) {
   return (
     <TouchableOpacity style={styles.wrapper}>
-      <Image
-        style={styles.image}
-        source={{uri: item.image[3]['#text']}}
-        resizeMode={'contain'}
-      />
-      <Typography variant={'medium_16'} color={COLORS.black} numberOfLines={1}>
+      <View style={styles.image_wrapper}>
+        <Image
+          style={styles.image}
+          defaultSource={AlbumCoverPlaceholder}
+          source={
+            item.image[3]['#text']
+              ? {uri: item.image[3]['#text']}
+              : AlbumCoverPlaceholder
+          }
+          resizeMode={'contain'}
+        />
+      </View>
+      <Typography
+        style={styles.title}
+        variant={'medium_16'}
+        color={COLORS.black}
+        numberOfLines={1}>
         {item.name}
       </Typography>
       <Typography

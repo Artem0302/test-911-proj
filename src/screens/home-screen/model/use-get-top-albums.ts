@@ -5,7 +5,8 @@ import {useApi, useError} from '@shared/core';
 import {TAlbum} from '../types';
 
 interface IGetTopAlbums {
-  setData: Dispatch<SetStateAction<TAlbum[]>>;
+  setData: Dispatch<SetStateAction<TAlbum[] | undefined>>;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 interface ITopAlbums {
@@ -19,8 +20,9 @@ export const useGetTopAlbums = () => {
   const {api} = useApi();
   const {bug} = useError();
 
-  const getTopAlbums = async ({setData}: IGetTopAlbums) => {
+  const getTopAlbums = async ({setData, setLoading}: IGetTopAlbums) => {
     try {
+      setLoading(true);
       const [responseError, response] = await to(
         api<ITopAlbums>('?method=tag.gettopalbums&tag=rock'),
       );
@@ -32,7 +34,9 @@ export const useGetTopAlbums = () => {
       setData(response.albums.album);
     } catch (error) {
       bug(t('oops'));
-      setData([]);
+      setData(undefined);
+    } finally {
+      setLoading(false);
     }
   };
 

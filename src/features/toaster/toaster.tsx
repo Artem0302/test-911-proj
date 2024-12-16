@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import {KeyboardAvoidingView, View} from 'react-native';
 
-import {IS_IOS} from '@shared/constants/device';
+import {IS_IOS} from '@shared/constants';
 import {useError} from '@shared/core';
 import {ToastMessage} from '@shared/ui';
 import styles from './toaster.styles';

@@ -1,8 +1,8 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {Keyboard, Pressable, SafeAreaView} from 'react-native';
+import {Keyboard, Pressable, View} from 'react-native';
 import {COLORS, DEVICE_WIDTH} from '@shared/constants';
-import {Input} from '@shared/ui';
+import {Input, Typography} from '@shared/ui';
 import SearchSvg from '../../assets/search.svg';
 import styles from './search-album-input.stylest.ts';
 
@@ -15,7 +15,7 @@ export function SearchAlbumInput({value, setValue}: SearchAlbumInput) {
   const {t} = useTranslation(['screens']);
 
   return (
-    <SafeAreaView style={styles.input_container}>
+    <View style={styles.input_container}>
       <Pressable style={styles.press_zone} onPress={() => Keyboard.dismiss()}>
         <Input
           startAdornment={
@@ -29,7 +29,10 @@ export function SearchAlbumInput({value, setValue}: SearchAlbumInput) {
           returnKeyType="search"
           placeholder={t('home-screen.search-albums')}
         />
+        <Typography variant={'medium_16'} style={styles.title}>
+          {t('home-screen.top-albums')}
+        </Typography>
       </Pressable>
-    </SafeAreaView>
+    </View>
   );
 }

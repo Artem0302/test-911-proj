@@ -12,4 +12,7 @@ export default StyleSheet.create({
   input: {
     borderRadius: 36,
   },
+  title: {
+    marginTop: 16,
+  },
 });

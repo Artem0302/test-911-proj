@@ -8,11 +8,16 @@ export default StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingHorizontal: 16,
     paddingVertical: 16,
+    paddingHorizontal: 8,
   },
   column_wrapper: {
     justifyContent: 'space-between',
     marginBottom: 16,
+  },
+  loading: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

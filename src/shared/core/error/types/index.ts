@@ -1,2 +1,2 @@
-export * from './error.types'
-export * from './toasts.types'
+export * from './error.types';
+export * from './toasts.types';

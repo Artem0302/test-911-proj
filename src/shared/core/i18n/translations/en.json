@@ -1,21 +1,21 @@
 {
-	"screens": {
-		"login-screen": {
-			"welcome": "Welcome to IMusic!",
-			"email": "Enter email",
-			"password": "Enter password",
-			"log-in-to-account": "Please log in to your account",
-			"login": "Login",
-			"success-login": "Successful login to account"
-		},
-		"home-screen": {
-			"search-albums": "Search albums"
-		}
-	},
-	"errors": {
-		"hide": "Hide"
-	},
-	"common": {
-		"oops": "Ooops, something went wrong"
-	}
+  "screens": {
+    "login-screen": {
+      "welcome": "Welcome to IMusic!",
+      "email": "Enter email",
+      "password": "Enter password",
+      "log-in-to-account": "Please log in to your account",
+      "login": "Login",
+      "success-login": "Successful login to account"
+    },
+    "home-screen": {
+      "search-albums": "Search albums"
+    }
+  },
+  "errors": {
+    "hide": "Hide"
+  },
+  "common": {
+    "oops": "Ooops, something went wrong"
+  }
 }

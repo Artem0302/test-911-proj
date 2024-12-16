@@ -1,3 +1,3 @@
-import { TYPOGRAPHY_SIZES } from '../model'
+import {TYPOGRAPHY_SIZES} from '../model';
 
-export type TTypographyVariants = keyof typeof TYPOGRAPHY_SIZES
+export type TTypographyVariants = keyof typeof TYPOGRAPHY_SIZES;

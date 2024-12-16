@@ -1,1 +1,1 @@
-export { ToastMessage } from './toast-message'
+export {ToastMessage} from './toast-message';

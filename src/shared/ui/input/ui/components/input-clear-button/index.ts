@@ -1,1 +1,1 @@
-export { InputClearButton } from './input-clear-button'
+export {InputClearButton} from './input-clear-button';

@@ -1,1 +1,1 @@
-export { TextButton } from './text-button'
+export {TextButton} from './text-button';

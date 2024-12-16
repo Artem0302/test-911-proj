@@ -1,1 +1,1 @@
-export * from './main-navigator.types'
+export * from './main-navigator.types';

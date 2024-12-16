@@ -1,1 +1,1 @@
-export { getToastColor } from './toasts-color.helper'
+export {getToastColor} from './toasts-color.helper';

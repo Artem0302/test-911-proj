@@ -1,3 +1,3 @@
-import { COLORS } from '@shared/constants'
+import {COLORS} from '@shared/constants';
 
-export type TCOLORS = keyof typeof COLORS
+export type TCOLORS = keyof typeof COLORS;

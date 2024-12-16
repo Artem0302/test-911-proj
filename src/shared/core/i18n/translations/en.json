@@ -15,6 +15,13 @@
     "songs-screen": {
       "more-info": "More info",
       "no-tracks": "Sorry, but for some reason there are no songs on this album"
+    },
+    "album-screen": {
+      "listeners": "Listeners:",
+      "playcount": "Number of album plays:",
+      "url": "URL:",
+      "published": "Published:",
+      "description": "Description:"
     }
   },
   "errors": {

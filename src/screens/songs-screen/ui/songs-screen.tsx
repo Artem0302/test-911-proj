@@ -3,12 +3,13 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {FlatList, ListRenderItem, RefreshControl, View} from 'react-native';
 
+import {AlbumHeader} from '@widgets/album-header';
 import {TAlbumInfo, TTrack} from '@entities/album';
 import {COLORS} from '@shared/constants';
 import {TSongsScreenRouteProp} from '@shared/types';
 import {LoadingIndicator, Typography} from '@shared/ui';
 import {useGetAlbumInfo} from '../model';
-import {SongItem, SongsHeader} from './components';
+import {SongItem} from './components';
 import styles from './songs-screen.styles.ts';
 
 export function SongsScreen() {
@@ -52,7 +53,13 @@ export function SongsScreen() {
   return (
     <View style={styles.container}>
       <FlatList
-        ListHeaderComponent={<SongsHeader image={data?.image[3]['#text']} />}
+        ListHeaderComponent={
+          data ? (
+            <AlbumHeader album={data} image={data?.image[3]['#text']} />
+          ) : (
+            <></>
+          )
+        }
         style={styles.flatlist}
         data={data?.tracks?.track}
         renderItem={renderItem}

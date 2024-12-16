@@ -16,7 +16,7 @@ import {
 import {TTypographyVariants} from '../types';
 
 interface ITypography {
-  children: string;
+  children: string | number;
   variant?: TTypographyVariants;
   fontSize?: number;
   color?: TCOLORS | string;

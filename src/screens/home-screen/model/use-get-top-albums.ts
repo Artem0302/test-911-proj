@@ -29,7 +29,6 @@ export const useGetTopAlbums = () => {
         return bug(t('oops'));
       }
 
-      console.log(response.albums.album);
       setData(response.albums.album);
     } catch (error) {
       bug(t('oops'));

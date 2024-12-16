@@ -12,10 +12,10 @@ import {
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {IS_IOS} from '@shared/constants';
+import {useError} from '@shared/core';
 import {TLoginScreenNavProp} from '@shared/types';
 import {Input, TextButton, Typography} from '@shared/ui';
 import styles from './login-screen.styles.ts';
-import {useError} from '@shared/core';
 
 export function LoginScreen() {
   const {t} = useTranslation('screens');

@@ -3,14 +3,16 @@ type TImage = {
   size: string;
 };
 
+interface IArtist {
+  mbid: string;
+  name: string;
+  url: string;
+}
+
 export type TAlbum = {
   url: string;
   name: string;
   mbid: string;
-  artist: {
-    mbid: string;
-    name: string;
-    url: string;
-  };
+  artist: IArtist | string;
   image: TImage[];
 };

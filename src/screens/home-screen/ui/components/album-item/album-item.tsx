@@ -37,7 +37,7 @@ export function AlbumItem({item}: IAlbumItem) {
         variant={'regular_12'}
         color={COLORS.dark_gray}
         numberOfLines={1}>
-        {item.artist.name}
+        {typeof item.artist === 'string' ? item.artist : item.artist.name}
       </Typography>
     </TouchableOpacity>
   );

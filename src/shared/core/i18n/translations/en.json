@@ -11,6 +11,10 @@
     "home-screen": {
       "search-albums": "Search albums",
       "top-albums": "Top rock albums:"
+    },
+    "songs-screen": {
+      "more-info": "More info",
+      "no-tracks": "Sorry, but for some reason there are no songs on this album"
     }
   },
   "errors": {

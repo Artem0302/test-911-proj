@@ -31,17 +31,10 @@ export const DISABLED_HEADER_STYLE_CONFIG = {
 export const HEADER_STYLE_CONFIG: StackNavigationOptions = {
   headerShown: true,
   headerStyle: {
-    backgroundColor: COLORS.light_bg,
+    backgroundColor: COLORS.white,
   },
-  headerBackTitleStyle: {
-    color: COLORS.light_gray,
-    fontSize: 14,
-  },
-  headerTintColor: COLORS.dark_gray,
+  headerTintColor: COLORS.blue,
   headerShadowVisible: false,
-  headerTitleStyle: {
-    color: COLORS.black,
-    fontWeight: '500',
-    fontSize: 24,
-  },
+  headerTitle: '',
+  headerBackTitle: '',
 };

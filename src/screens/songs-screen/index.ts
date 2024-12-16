@@ -1,1 +1,1 @@
-export {SongsScreen} from './songs-screen.tsx';
+export {SongsScreen} from './ui';

@@ -8,7 +8,6 @@ export default StyleSheet.create({
     backgroundColor: COLORS.light_bg,
   },
   image_wrapper: {
-    width: '100%',
     flex: 1,
     shadowColor: COLORS.black,
     shadowOffset: {

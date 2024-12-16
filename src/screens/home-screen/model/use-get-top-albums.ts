@@ -1,8 +1,8 @@
 import to from 'await-to-js';
 import {Dispatch, SetStateAction, useState} from 'react';
 import {useTranslation} from 'react-i18next';
+import {TAlbum} from '@entities/album';
 import {useApi, useError} from '@shared/core';
-import {TAlbum} from '../types';
 
 interface IGetTopAlbums {
   setData: Dispatch<SetStateAction<TAlbum[] | undefined>>;

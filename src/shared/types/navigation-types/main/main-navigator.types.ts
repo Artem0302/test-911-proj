@@ -3,7 +3,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 export type TMainStackParamsList = {
   'MAIN.LOGIN_SCREEN': undefined;
   'MAIN.HOME_SCREEN': undefined;
-  'MAIN.SONGS_SCREEN': undefined;
+  'MAIN.SONGS_SCREEN': {artist: string; album: string};
   'MAIN.ALBUM_SCREEN': undefined;
 };
 
@@ -32,6 +32,8 @@ type SongsScreenNavigationProp = StackScreenProps<
 >;
 
 export type TSongsScreenNavProp = SongsScreenNavigationProp['navigation'];
+
+export type TSongsScreenRouteProp = SongsScreenNavigationProp['route'];
 
 //Album Screen
 

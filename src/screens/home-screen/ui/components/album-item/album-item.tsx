@@ -1,9 +1,11 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 
 import {Image, TouchableOpacity, View} from 'react-native';
+import {TAlbum} from '@entities/album';
 import {COLORS} from '@shared/constants';
+import {THomeScreenNavProp} from '@shared/types';
 import {Typography} from '@shared/ui';
-import {TAlbum} from '../../../types';
 import AlbumCoverPlaceholder from '../../assets/album-cover-placeholder.png';
 import styles from './album-item.styles.ts';
 
@@ -12,8 +14,17 @@ interface IAlbumItem {
 }
 
 export function AlbumItem({item}: IAlbumItem) {
+  const navigation = useNavigation<THomeScreenNavProp>();
+
+  const onPress = () => {
+    navigation.navigate('MAIN.SONGS_SCREEN', {
+      album: item.name || item.mbid,
+      artist: typeof item.artist === 'string' ? item.artist : item.artist.name,
+    });
+  };
+
   return (
-    <TouchableOpacity style={styles.wrapper}>
+    <TouchableOpacity style={styles.wrapper} onPress={onPress}>
       <View style={styles.image_wrapper}>
         <Image
           style={styles.image}

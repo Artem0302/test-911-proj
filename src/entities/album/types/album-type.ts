@@ -1,18 +1,18 @@
-type TImage = {
+export type TImage = {
   '#text': string;
   size: string;
 };
 
-interface IArtist {
+export type TArtist = {
   mbid: string;
   name: string;
   url: string;
-}
+};
 
 export type TAlbum = {
   url: string;
   name: string;
   mbid: string;
-  artist: IArtist | string;
+  artist: TArtist | string;
   image: TImage[];
 };

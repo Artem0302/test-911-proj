@@ -2,10 +2,10 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {View, FlatList, ListRenderItem, RefreshControl} from 'react-native';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {TAlbum} from '@entities/album';
 import {useDebounce} from '@shared/hooks';
 import {LoadingIndicator} from '@shared/ui';
 import {useGetTopAlbums} from '../model';
-import {TAlbum} from '../types';
 import {SearchAlbumInput, AlbumItem} from './components';
 import styles from './home-screen.styles.ts';
 
@@ -72,7 +72,9 @@ export function HomeScreen() {
           <RefreshControl refreshing={loading} onRefresh={onRefresh} />
         }
         onEndReachedThreshold={0.2}
-        onEndReached={() => data !== undefined && fetchNewData(searchDebounce)}
+        onEndReached={() =>
+          data !== undefined && !loading && fetchNewData(searchDebounce)
+        }
       />
     </SafeAreaView>
   );

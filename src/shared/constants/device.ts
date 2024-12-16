@@ -3,6 +3,7 @@ import {hasDynamicIsland, hasNotch} from 'react-native-device-info';
 
 // Display
 export const DEVICE_WIDTH = Dimensions.get('window').width;
+export const DEVICE_HEIGHT = Dimensions.get('window').height;
 export const MAX_WIDTH_DEVICE = 428;
 
 // System, device & settings

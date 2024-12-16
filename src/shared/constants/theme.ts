@@ -19,6 +19,9 @@ export const COLORS = {
   dark_gray: '#756C5D',
   black: '#000000',
   white: '#ffff',
+  red: '#E30E2C',
+  green: '#1ABB77',
+  orange: '#FF9F21',
 };
 
 export const DISABLED_HEADER_STYLE_CONFIG = {

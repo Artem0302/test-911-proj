@@ -1,1 +1,1 @@
-export {HomeScreen} from './home-screen.tsx';
+export {HomeScreen} from './ui';

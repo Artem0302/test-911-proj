@@ -1,6 +1,6 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {AlbumScreen} from '@screens/album-screen';
-import {HomeScreen} from '@screens/home-screen';
+import {HomeScreen} from '@screens/home-screen/ui';
 import {LoginScreen} from '@screens/login-screen';
 import {SongsScreen} from '@screens/songs-screen';
 import React from 'react';
@@ -23,7 +23,13 @@ export function MainNavigator() {
           ...DISABLED_HEADER_STYLE_CONFIG,
         }}
       />
-      <Main.Screen name="MAIN.HOME_SCREEN" component={HomeScreen} />
+      <Main.Screen
+        name="MAIN.HOME_SCREEN"
+        component={HomeScreen}
+        options={{
+          ...DISABLED_HEADER_STYLE_CONFIG,
+        }}
+      />
       <Main.Screen
         name="MAIN.SONGS_SCREEN"
         component={SongsScreen}

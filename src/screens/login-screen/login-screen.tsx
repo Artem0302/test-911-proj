@@ -15,9 +15,11 @@ import {IS_IOS} from '@shared/constants';
 import {TLoginScreenNavProp} from '@shared/types';
 import {Input, TextButton, Typography} from '@shared/ui';
 import styles from './login-screen.styles.ts';
+import {useError} from '@shared/core';
 
 export function LoginScreen() {
   const {t} = useTranslation('screens');
+  const {success} = useError();
   const navigation = useNavigation<TLoginScreenNavProp>();
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -25,6 +27,7 @@ export function LoginScreen() {
   const disabled = !login || !password;
 
   const onPress = useCallback(() => {
+    success(t('login-screen.success-login'));
     navigation.navigate('MAIN.HOME_SCREEN');
   }, []);
 
@@ -44,11 +47,11 @@ export function LoginScreen() {
               style={styles.title}
               variant={'h1'}
               textAlign={'center'}>
-              {t('home-screen.welcome')}
+              {t('login-screen.welcome')}
             </Typography>
             <View style={styles.body}>
               <Typography variant={'medium_14'}>
-                {t('home-screen.log-in-to-account')}
+                {t('login-screen.log-in-to-account')}
               </Typography>
               <Input
                 inputStyle={styles.input}
@@ -56,7 +59,7 @@ export function LoginScreen() {
                 style={styles.input_wrapper}
                 value={login}
                 onChange={setLogin}
-                placeholder={t('home-screen.email')}
+                placeholder={t('login-screen.email')}
               />
               <Input
                 inputStyle={styles.input}
@@ -64,14 +67,14 @@ export function LoginScreen() {
                 style={styles.input_wrapper}
                 value={password}
                 onChange={setPassword}
-                placeholder={t('home-screen.password')}
+                placeholder={t('login-screen.password')}
               />
               <TextButton
                 onPress={onPress}
                 style={styles.button}
                 fontSize={16}
                 disabled={disabled}>
-                {t('home-screen.login')}
+                {t('login-screen.login')}
               </TextButton>
             </View>
           </View>

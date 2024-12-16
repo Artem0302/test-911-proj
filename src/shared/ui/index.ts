@@ -3,3 +3,4 @@ export {LoadingIndicator} from './loading-indicator';
 export {Text} from './text';
 export {TextButton} from './text-button';
 export {Typography} from './typography';
+export {ToastMessage} from './toast-message';

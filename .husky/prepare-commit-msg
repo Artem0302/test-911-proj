@@ -1,0 +1,2 @@
+npx jira-prepare-commit-msg $1
+

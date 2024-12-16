@@ -32,7 +32,7 @@ export function AlbumScreen() {
           style={styles.subtitle}
           variant={'medium_16'}
           color={COLORS.blue}>
-          {album.listeners}
+          {album?.listeners || ''}
         </Typography>
       </View>
       <View style={styles.text_wrapper}>
@@ -43,7 +43,7 @@ export function AlbumScreen() {
           style={styles.subtitle}
           variant={'medium_16'}
           color={COLORS.blue}>
-          {album.playcount}
+          {album?.playcount || ''}
         </Typography>
       </View>
       <View style={styles.text_wrapper}>
@@ -54,7 +54,7 @@ export function AlbumScreen() {
           style={styles.subtitle}
           variant={'medium_16'}
           color={COLORS.blue}>
-          {album.url}
+          {album?.url || ''}
         </Typography>
       </View>
       <View style={styles.text_wrapper}>
@@ -65,7 +65,7 @@ export function AlbumScreen() {
           style={styles.subtitle}
           variant={'medium_16'}
           color={COLORS.blue}>
-          {album.wiki.published}
+          {album?.wiki?.published || ''}
         </Typography>
       </View>
       <View style={styles.text_wrapper}>
@@ -76,7 +76,7 @@ export function AlbumScreen() {
           style={styles.subtitle}
           variant={'medium_16'}
           color={COLORS.blue}>
-          {album.wiki.content}
+          {album?.wiki?.content || ''}
         </Typography>
       </View>
     </ScrollView>

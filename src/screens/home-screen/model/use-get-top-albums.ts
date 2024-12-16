@@ -15,6 +15,19 @@ interface ITopAlbums {
   };
 }
 
+interface ISearchAlbums {
+  results: {
+    albummatches: {
+      album: TAlbum[];
+    };
+  };
+}
+
+interface ISearchAlbumsRequest {
+  newPage?: number;
+  searchField: string;
+}
+
 export const useGetTopAlbums = ({setData, setLoading}: IGetTopAlbums) => {
   const {t} = useTranslation('common');
   const {api} = useApi();
@@ -50,10 +63,49 @@ export const useGetTopAlbums = ({setData, setLoading}: IGetTopAlbums) => {
     }
   };
 
-  const fetchNewData = async () => {
+  const searchAlbumsRequest = async ({
+    newPage,
+    searchField,
+  }: ISearchAlbumsRequest) => {
+    try {
+      setLoading(true);
+
+      const [responseError, response] = await to(
+        api<ISearchAlbums>(
+          `?method=album.search&album=${searchField}&limit=15&page=${
+            newPage ?? 1
+          }`,
+        ),
+      );
+      if (responseError || !response?.results?.albummatches?.album) {
+        return bug(t('oops'));
+      }
+
+      if (!newPage) {
+        setPage(1);
+
+        return setData(response.results.albummatches.album);
+      }
+
+      setData(state => [
+        ...(state ?? []),
+        ...response.results.albummatches.album,
+      ]);
+    } catch (error) {
+      bug(t('oops'));
+      setData(undefined);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchNewData = async (searchField?: string) => {
+    if (searchField) {
+      return searchAlbumsRequest({newPage: page + 1, searchField});
+    }
     setPage(page + 1);
     await getTopAlbums(page + 1);
   };
 
-  return {getTopAlbums, fetchNewData};
+  return {getTopAlbums, fetchNewData, searchAlbumsRequest};
 };

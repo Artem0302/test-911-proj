@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Dispatch, memo, SetStateAction} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Keyboard, Pressable, View} from 'react-native';
 import {COLORS, DEVICE_WIDTH} from '@shared/constants';
@@ -8,10 +8,10 @@ import styles from './search-album-input.stylest.ts';
 
 interface SearchAlbumInput {
   value: string;
-  setValue: (text: string) => void;
+  setValue: Dispatch<SetStateAction<string>>;
 }
 
-export function SearchAlbumInput({value, setValue}: SearchAlbumInput) {
+export const SearchAlbumInput = memo(({value, setValue}: SearchAlbumInput) => {
   const {t} = useTranslation(['screens']);
 
   return (
@@ -29,10 +29,12 @@ export function SearchAlbumInput({value, setValue}: SearchAlbumInput) {
           returnKeyType="search"
           placeholder={t('home-screen.search-albums')}
         />
-        <Typography variant={'medium_16'} style={styles.title}>
-          {t('home-screen.top-albums')}
-        </Typography>
+        {!value && (
+          <Typography variant={'medium_16'} style={styles.title}>
+            {t('home-screen.top-albums')}
+          </Typography>
+        )}
       </Pressable>
     </View>
   );
-}
+});
